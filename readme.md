@@ -4,8 +4,11 @@
 
 2-Crear tres tablas con los siguientes nombres:
 -tb_unidades_medidas: 
+
 (con campo codigo_um que sea de tipo INT,tenga valor no nulo, que sea incremental y que sea la llave primaria)
+
 (campo description tipo VARCHAR de tamaño 20 y por defecto nulo)
+
 (estado de tipo BIT y por defecto nulo)
 
 -tb_categoria
