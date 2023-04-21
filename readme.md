@@ -26,5 +26,30 @@ tb_unidades_medidas(
     Litros,1
     Metros,0
     Centímetros,0
-
+    kilometros,1
+    pulgadas,1
+    kilogramos,1
     )
+tb_categoria(
+    eletroctrodoméstico, 1
+    accesorios,0
+    belleza,1
+    juguetes,0
+    autos,1
+)
+tb_articulos(
+    lavarropa,sanyo,6,1,1
+    televisor,samgung,6,1,1
+    cubierta,pirelli,3,5,0
+    robot,honda,2,4,1
+    cinturón, nike, 3,2,0
+    smartphone,samgung,5,2,1
+)
+
+4-Muestra todos las categorías existentes
+
+5-Muestra todos los nombres de los artículos existentes en la base de datos
+
+6-¿Cuántos artículos de marca samsung existe en la base de datos?
+
+7-¿Qué unidades de medidas tienen estado 1?
