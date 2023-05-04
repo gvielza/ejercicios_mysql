@@ -145,3 +145,26 @@ Ejercicios:
 11-Mostrar el email de los usuarios que usan gmail
 
 12-Listar nombre y teléfono de los usuarios con teléfono LG, SAMSUNG o MOTOROLA
+
+
+## Ejercicio sobre sakila
+
+1-Actores que tienen de primer nombre ‘Scarlett’
+
+2-Actores que contengan una ‘O’ en su nombre y en una ‘A’ en su apellido
+
+3-Mostrar los titulos y descripción de peliculas que contienen la palabra "dog" en su descripción.
+
+4-Ciudades del country ‘Spain’
+
+5-Mostrar el 'firstname' y 'lastname' de los clientes activos (active).
+
+6-Contar el número de clientes activos por paises
+
+7-Mostrar los paises dónde hay al menos 10 clientes activos, ordenados del número más grande al más pequeño.
+
+8-Mostrar los titulos y descripción de peliculas que más fueron arrendadas, ordenadas de del número más grande al más pequeño.
+
+9-Mostrar las peliculas que nunca fueron arrendadas entre dos fechas.
+
+10-Mostrar el volumen de negocio (ver tabla Payment) asociado a cada pelicula entre dos fechas, ordenado del volumen de negocio más grande al más pequeño.
