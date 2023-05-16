@@ -78,6 +78,35 @@ WHERE r.rental_date BETWEEN '2005-05-01' AND '2005-06-01'
 GROUP BY f.title
 ORDER BY revenue DESC;
 
+##Ejercicios de INNER JOIN, LEFT JOIN, RIGHT JOIN y FULL JOIN  
+Cláusula LEFT JOIN
+A diferencia de un INNER JOIN, donde se busca una intersección respetada por ambas tablas, con LEFT JOIN damos prioridad a la tabla de la izquierda, y buscamos en la tabla derecha.
+
+Si no existe ninguna coincidencia para alguna de las filas de la tabla de la izquierda, de igual forma todos los resultados de la primera tabla se muestran.
+
+SELECT
+  E.Nombre as 'Empleado',
+  D.Nombre as 'Departamento'
+FROM Empleados E
+LEFT JOIN Departamentos D
+ON E.DepartamentoId = D.Id
+
+full join
+
+SELECT E.Nombre as 'Empleado',
+  D.Nombre as 'Departamento'
+  FROM Empleados E
+  LEFT JOIN Departamentos D
+  ON E.DepartamentoId = D.Id
+UNION
+SELECT E.Nombre as 'Empleado',
+  D.Nombre as 'Departamento'
+  FROM Empleados E
+  RIGHT JOIN Departamentos D
+  ON E.DepartamentoId = D.Id;
+
+
+
 
 
 

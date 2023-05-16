@@ -168,3 +168,37 @@ Ejercicios:
 9-Mostrar las peliculas que nunca fueron arrendadas entre dos fechas.
 
 10-Mostrar el volumen de negocio (ver tabla Payment) asociado a cada pelicula entre dos fechas, ordenado del volumen de negocio más grande al más pequeño.
+
+## Ejercicios de INNER JOIN, LEFT JOIN, RIGHT JOIN y FULL JOIN  
+
+CREATE DATABASE TestJoin;
+
+
+USE TestJoin;
+
+
+CREATE TABLE Departamentos
+(
+    Id int,
+    Nombre varchar(20)
+);
+
+CREATE TABLE Empleados
+(
+    Nombre varchar(20),
+    DepartamentoId int
+);
+
+INSERT INTO Departamentos VALUES(31, 'Sales');
+INSERT INTO Departamentos VALUES(33, 'Engineering');
+INSERT INTO Departamentos VALUES(34, 'Clerical');
+INSERT INTO Departamentos VALUES(35, 'Marketing');
+
+INSERT INTO Empleados VALUES('Rafferty', 31);
+INSERT INTO Empleados VALUES('Jones', 33);
+INSERT INTO Empleados VALUES('Heisenberg', 33);
+INSERT INTO Empleados VALUES('Robinson', 34);
+INSERT INTO Empleados VALUES('Smith', 34);
+INSERT INTO Empleados VALUES('Williams', NULL);
+
+1-Mostrar el nombre de los empleados y los departamentos a los que pertecene
