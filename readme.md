@@ -157,11 +157,19 @@ Ejercicios:
 
 4-Ciudades del country ‘Spain’
 
+******************************************
 ## Angie(Ejercicio 1 y 2)
 1-Mostrar los nombres de los clientes con sus respectivos telefonos
 
 2-Mostrar el titulo , descripción y lenguaje de las peliculas
 
+3-Mostrar las ciudades con sus respectivos codigos postales
+
+4-Mostrar las direcciones , email y telefono de todos los clientes.
+
+5-Mostrar todos nombres de las ciudades y paises usando UNION
+
+*******************************************
 5-Mostrar el 'firstname' y 'lastname' de los clientes activos (active).
 
 6-Contar el número de clientes activos por paises
