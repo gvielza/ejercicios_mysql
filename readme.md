@@ -169,6 +169,12 @@ Ejercicios:
 
 5-Mostrar todos nombres de las ciudades y paises usando UNION
 
+6-Devolver una lista con las películas y sus respectivos lenguajes
+
+7-Mostrar todos los clientes y sus fechas de renta
+
+8-Mostrar todas las ciudades que son de Argentina
+
 *******************************************
 5-Mostrar el 'firstname' y 'lastname' de los clientes activos (active).
 
