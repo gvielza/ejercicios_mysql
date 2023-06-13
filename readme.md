@@ -221,3 +221,13 @@ INSERT INTO Empleados VALUES('Smith', 34);
 INSERT INTO Empleados VALUES('Williams', NULL);
 
 1-Mostrar el nombre de los empleados y los departamentos a los que pertecene
+
+## Ejercicios con classicmodels , mysqlsampledatabase.sql
+
+1-Mostrar los productos, la línea a la que pertenece y la descripción de su línea
+
+2-Mostrar los empleados, con su email que trabajen en Boston
+
+3-Mostrar los clientes que reportaron comentarios y sus comentarios.
+
+4-Mostrra los productos que fueron enviados
