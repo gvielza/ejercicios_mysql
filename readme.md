@@ -231,3 +231,10 @@ INSERT INTO Empleados VALUES('Williams', NULL);
 3-Mostrar los clientes que reportaron comentarios y sus comentarios.
 
 4-Mostrra los productos que fueron enviados
+--------------------
+
+5-¿Cuánto ha pagado el cliente 282 hasta ahora?
+
+6-Países con más de 10 clientes
+
+7-Cuente estas órdenes; ¿Cuántos hay?
