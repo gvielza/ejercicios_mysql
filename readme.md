@@ -252,3 +252,5 @@ INSERT INTO productos (nombre, coste, precio) VALUES ('Producto A', 4, 8), ('Pro
 4- Crear una función calcularBeneficio, Esta función aceptará dos parámetros, que como no podría ser de otro modo son el precio de compra (coste) y el de venta (precio) de un producto. El resultado de al función simplemente será la resta del precio de venta y el de compra, dando como resultado el beneficio obtenido con su venta.
 
 5- Usa la función almacenada sobre los valores de la tabla productos
+
+6-Borrar la función 

@@ -106,6 +106,7 @@ SELECT E.Nombre as 'Empleado',
   ON E.DepartamentoId = D.Id;
 
   # Funciones almacenadas
+  https://www.neoguias.com/funciones-almacenadas-mysql/
 
   CREATE DATABASE base_ejemplo;
 
@@ -127,6 +128,8 @@ END$$
 DELIMITER
 
 SELECT *, calcularBeneficio(coste, precio) AS beneficio FROM productos;
+
+DROP FUNCTION calcularBeneficio;
 
 
 
