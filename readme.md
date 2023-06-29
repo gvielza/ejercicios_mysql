@@ -238,3 +238,17 @@ INSERT INTO Empleados VALUES('Williams', NULL);
 6-Países con más de 10 clientes
 
 7-Cuente estas órdenes; ¿Cuántos hay?
+-----------------
+
+## Funciones almacenadas
+
+1-Crear base de datos base_ejemplo
+ 
+2-Crear una tabla productos, con id autoincremental que no sea nulo como llave primaria, nombre varchar de 20 , un coste y precio flotante con valor por defecto de 0.0, todas las columnas deben tener datos.
+
+3-Inserdat datos
+INSERT INTO productos (nombre, coste, precio) VALUES ('Producto A', 4, 8), ('Producto B', 1, 1.5),('Producto C', 50, 80);
+
+4- Crear una función calcularBeneficio, Esta función aceptará dos parámetros, que como no podría ser de otro modo son el precio de compra (coste) y el de venta (precio) de un producto. El resultado de al función simplemente será la resta del precio de venta y el de compra, dando como resultado el beneficio obtenido con su venta.
+
+5- Usa la función almacenada sobre los valores de la tabla productos

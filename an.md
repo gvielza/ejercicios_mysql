@@ -105,6 +105,30 @@ SELECT E.Nombre as 'Empleado',
   RIGHT JOIN Departamentos D
   ON E.DepartamentoId = D.Id;
 
+  # Funciones almacenadas
+
+  CREATE DATABASE base_ejemplo;
+
+  CREATE TABLE productos (
+    id INT NOT NULL AUTO_INCREMENT,
+    nombre VARCHAR(20) NOT NULL,
+    coste FLOAT NOT NULL DEFAULT 0.0,
+    precio FLOAT NOT NULL DEFAULT 0.0,
+    PRIMARY KEY(id)
+);
+
+DELIMITER $$
+CREATE FUNCTION calcularBeneficio(coste FLOAT, precio FLOAT) RETURNS DECIMAL(9,2)
+BEGIN
+    DECLARE beneficio DECIMAL(9,2);
+    SET beneficio = precio - coste;
+    RETURN beneficio;
+END$$
+DELIMITER
+
+SELECT *, calcularBeneficio(coste, precio) AS beneficio FROM productos;
+
+
 
 
 
