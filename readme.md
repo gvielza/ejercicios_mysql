@@ -270,3 +270,5 @@ INSERT INTO productos (nombre, coste, precio) VALUES ('Producto A', 4, 8), ('Pro
 6-Todas las ciudades con sus respectivos idiomas
 
 7-MOstrar las ciudades ,con sus país región e idioma que hablan 
+
+8-Crear nuevo campo llamado "prueba" a la tabla "countrylanguage" 
