@@ -254,3 +254,19 @@ INSERT INTO productos (nombre, coste, precio) VALUES ('Producto A', 4, 8), ('Pro
 5- Usa la función almacenada sobre los valores de la tabla productos
 
 6-Borrar la función 
+
+## Base de datos world
+
+1- Instalar la base de datos world en tu gestor de base de datos
+
+2- Verificar las cantidad de tablas en la base de datos
+
+3-Obtén el número total de ciudades en la tabla "city" de la base de datos "world".
+
+4-Obtén el valor medio de habitantes de todas las ciudades de la tabla "city" de la base de datos "World".
+
+5-Todos los países que contengan la palabra 'island'.
+
+6-Todas las ciudades con sus respectivos idiomas
+
+7-MOstrar las ciudades ,con sus país región e idioma que hablan 
