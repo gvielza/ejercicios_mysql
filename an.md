@@ -138,6 +138,16 @@ ADD prueba VARCHAR(50);
 ALTER TABLE countrylanguage
 ADD prueba VARCHAR(50) DEFAULT 'valor_predeterminado';
 
+9-SELECT c.Name AS Country, COUNT(*) AS TotalCities
+FROM country c
+INNER JOIN city ct ON c.Code = ct.CountryCode
+GROUP BY c.Name;
+
+SELECT c.Continent, COUNT(DISTINCT cl.Language) AS NumberOfLanguages
+FROM country c
+INNER JOIN countrylanguage cl ON c.Code = cl.CountryCode
+GROUP BY c.Continent;
+
 
 
 

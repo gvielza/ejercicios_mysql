@@ -272,3 +272,7 @@ INSERT INTO productos (nombre, coste, precio) VALUES ('Producto A', 4, 8), ('Pro
 7-MOstrar las ciudades ,con sus país región e idioma que hablan 
 
 8-Crear nuevo campo llamado "prueba" a la tabla "countrylanguage" 
+
+9-Obtener el número total de ciudades por cada país
+
+10-obtener el número de idiomas distintos hablados en cada continente, junto con el nombre del continente
