@@ -131,6 +131,14 @@ SELECT *, calcularBeneficio(coste, precio) AS beneficio FROM productos;
 
 DROP FUNCTION calcularBeneficio;
 
+## world
+ALTER TABLE countrylanguage
+ADD prueba VARCHAR(50);
+
+ALTER TABLE countrylanguage
+ADD prueba VARCHAR(50) DEFAULT 'valor_predeterminado';
+
+
 
 
 
