@@ -276,3 +276,15 @@ INSERT INTO productos (nombre, coste, precio) VALUES ('Producto A', 4, 8), ('Pro
 9-Obtener el número total de ciudades por cada país
 
 10-obtener el número de idiomas distintos hablados en cada continente, junto con el nombre del continente
+
+----------------------------------------------------------------
+
+11-Función de Agregación: Calcula el promedio de la esperanza de vida en todos los países.
+
+12-Función de Agregación con Filtro: Calcula el número total de países en cada continente
+
+13- Función de Fecha : Cuantos años de indendencia tiene cada país independiente
+
+14-CRea una función que devuelva el número promedio de ciudades por país 
+
+15-Crea una función que devuelva el porcentaje de población urbana para un país

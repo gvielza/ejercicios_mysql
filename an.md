@@ -148,6 +148,56 @@ FROM country c
 INNER JOIN countrylanguage cl ON c.Code = cl.CountryCode
 GROUP BY c.Continent;
 
+11-SELECT AVG(LifeExpectancy) AS AverageLifeExpectancy
+FROM country;
+
+12-SELECT Continent, COUNT(*) AS NumberOfCountries
+FROM country
+GROUP BY Continent;
+
+13-select name ,year(curdate())-indepyear from country WHERE IndepYear IS NOT NULL;
+
+14-DELIMITER //
+
+CREATE FUNCTION calcularPromedioCiudades() RETURNS DECIMAL(10,2)
+BEGIN
+    DECLARE promedio DECIMAL(10,2);
+    SELECT AVG(city_count) INTO promedio
+    FROM (
+        SELECT COUNT(*) AS city_count
+        FROM city
+        GROUP BY CountryCode
+    ) AS subquery;
+    RETURN promedio;
+END //
+
+DELIMITER ;
+SELECT calcularPromedioCiudades() AS PromedioCiudades;
+
+15-DELIMITER //
+
+CREATE FUNCTION calcularPorcentajePoblacionUrbana(countryCode CHAR(3)) RETURNS DECIMAL(5,2)
+BEGIN
+    DECLARE poblacionTotal INT;
+    DECLARE poblacionUrbana INT;
+    DECLARE porcentaje DECIMAL(5,2);
+
+    SELECT Population INTO poblacionTotal
+    FROM country
+    WHERE Code = countryCode;
+
+    SELECT SUM(Population) INTO poblacionUrbana
+    FROM city
+    WHERE CountryCode = countryCode;
+
+    SET porcentaje = (poblacionUrbana / poblacionTotal) * 100;
+
+    RETURN porcentaje;
+END //
+
+DELIMITER ;
+SELECT calcularPorcentajePoblacionUrbana('USA') AS PorcentajePoblacionUrbana;
+
 
 
 
