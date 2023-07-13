@@ -285,6 +285,6 @@ INSERT INTO productos (nombre, coste, precio) VALUES ('Producto A', 4, 8), ('Pro
 
 13- Función de Fecha : Cuantos años de indendencia tiene cada país independiente
 
-14-CRea una función que devuelva el número promedio de ciudades por país 
+14-Crear una función que devuelva el número promedio de ciudades por país (no)
 
 15-Crea una función que devuelva el porcentaje de población urbana para un país
