@@ -262,6 +262,99 @@ FROM Productos P
 JOIN DetallePedidos DP ON P.idproducto = DP.idproducto
 GROUP BY origen;
 
+/*Crear un bloque PL SQL que permita, mediante una transacción, realizar el registro
+de un pedido con su detalle (renglones). El proceso debe contemplar la actualización
+del stock de los productos pedidos. En caso de producirse un error, la transacción
+debe ser cancelada.*/
+-- Iniciar la transacción
+START TRANSACTION;
+
+-- Insertar el pedido
+INSERT INTO Pedidos (idcliente, idvendedor, fecha, Estado)
+VALUES (1, 1, NOW(), 'En proceso');
+
+-- Obtener el ID del pedido recién insertado
+SET @NumeroPedido = LAST_INSERT_ID();
+
+-- Insertar el detalle del pedido
+INSERT INTO DetallePedidos (NumeroPedido, renglon, idproducto, cantidad, PrecioUnitario, Total)
+VALUES (@NumeroPedido, 1, 1, 5, 10.99, 54.95);
+
+-- Actualizar el stock de productos
+UPDATE Productos
+SET Stock = Stock - 5
+WHERE idproducto = 1;
+
+-- Confirmar la transacción
+COMMIT;
+
+SELECT * FROM Pedidos WHERE NumeroPedido = 1;
+
+/*Crear un procedimiento almacenado que permita Anular un pedido confirmado. El
+proceso de anulación debe actualizar los stocks de los artículos del pedido.*/
+
+DELIMITER //
+
+CREATE PROCEDURE AnularPedido(IN NumeroPedidoParam INT)
+BEGIN
+    DECLARE v_idproducto INT;
+    DECLARE v_cantidad INT;
+    DECLARE no_more_rows BOOLEAN DEFAULT FALSE;
+
+    -- Declarar un cursor que obtendrá los detalles del pedido
+    DECLARE cur CURSOR FOR
+    SELECT idproducto, cantidad
+    FROM DetallePedidos
+    WHERE NumeroPedido = NumeroPedidoParam;
+    
+    -- Declarar un manejador para continuar después del último registro
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET no_more_rows = TRUE;
+
+    -- Verificar si el pedido existe y está confirmado
+    IF (SELECT Estado FROM Pedidos WHERE NumeroPedido = NumeroPedidoParam) = 'Confirmado' THEN
+        -- Iniciar la transacción
+        START TRANSACTION;
+
+        -- Abrir el cursor
+        OPEN cur;
+
+        -- Loop para procesar los detalles del pedido
+        main_loop: LOOP
+            FETCH cur INTO v_idproducto, v_cantidad;
+
+            IF no_more_rows THEN
+                LEAVE main_loop;
+            END IF;
+
+            -- Actualizar el stock de productos
+            UPDATE Productos
+            SET Stock = Stock + v_cantidad
+            WHERE idproducto = v_idproducto;
+        END LOOP;
+
+        -- Cerrar el cursor
+        CLOSE cur;
+
+        -- Cambiar el estado del pedido a "Anulado"
+        UPDATE Pedidos
+        SET Estado = 'Anulado'
+        WHERE NumeroPedido = NumeroPedidoParam;
+
+        -- Confirmar la transacción
+        COMMIT;
+
+        SELECT 'Pedido anulado y stocks actualizados correctamente.' AS Resultado;
+    ELSE
+        SELECT 'El pedido no existe o no está confirmado.' AS Resultado;
+    END IF;
+END;
+//
+
+DELIMITER ;
+
+CALL AnularPedido(1); -- Reemplaza 1 con el número de pedido que deseas anular
+
+
 
 
 
