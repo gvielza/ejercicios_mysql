@@ -354,6 +354,50 @@ DELIMITER ;
 
 CALL AnularPedido(1); -- Reemplaza 1 con el número de pedido que deseas anular
 
+#Crear una tabla denominada Log (idlog, numeroPedido,FechaAnulacion).
+CREATE TABLE Log (
+    idlog INT AUTO_INCREMENT PRIMARY KEY,
+    numeroPedido INT,
+    FechaAnulacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (numeroPedido) REFERENCES Pedidos(NumeroPedido)
+);
+
+/*Log, el número de pedido anulado y la fecha de anulación.*/
+DELIMITER //
+
+CREATE TRIGGER AnularPedido_Log
+AFTER UPDATE ON Pedidos
+FOR EACH ROW
+BEGIN
+    -- Verificar si el pedido ha sido anulado
+    IF NEW.Estado = 'Anulado' AND OLD.Estado != 'Anulado' THEN
+        -- Insertar un registro en la tabla Log
+        INSERT INTO Log (numeroPedido, FechaAnulacion)
+        VALUES (NEW.NumeroPedido, NOW());
+    END IF;
+END;
+//
+
+DELIMITER ;
+/*Crear un Procedimiento almacenado que permita actualizar el precio de los artículos
+de un determinado origen en un determinado porcentaje.*/
+DELIMITER //
+
+CREATE PROCEDURE ActualizarPrecioPorOrigen(IN origen_param VARCHAR(255), IN porcentaje_param DECIMAL(10,2))
+BEGIN
+    -- Actualizar el precio de los artículos del origen dado
+    UPDATE Productos
+    SET PrecioUnitario = PrecioUnitario * (1 + porcentaje_param / 100)
+    WHERE origen = origen_param;
+    
+    SELECT CONCAT('Precio actualizado para artículos de origen ', origen_param, ' en un ', porcentaje_param, '%.') AS Resultado;
+END;
+//
+
+DELIMITER ;
+
+
+
 
 
 
